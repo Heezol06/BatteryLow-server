@@ -4,7 +4,6 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 const dotenv = require("dotenv");
-const ObjectId = require('mongodb').ObjectId;
 
 // use middleware
 app.use(cors());
@@ -28,7 +27,7 @@ async function run() {
 
       app.post("/planning", async (req, res)=>{
         const newPlanning= req.body;
-        console.log("adding new plan",newPlanning);
+        // console.log("adding new plan",newPlanning);
         const result = await planningCollection.insertOne(newPlanning);
         res.send(result)
       })
@@ -40,7 +39,7 @@ async function run() {
       });
     }
     catch(err){
-        console.log(err)
+        // console.log(err)
         }
     finally {
         // await client.close();
